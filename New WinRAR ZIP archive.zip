@@ -1,3 +1,4 @@
+                             FORM.HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,3 +55,64 @@
     </form>
 </body>
 </html>
+                          
+                          FORM.JS
+function validateFormData() {
+    var firstName = document.getElementById('firstName');
+    var lastName = document.getElementById ('lastName');
+    var password = document.getElementById ('password');
+    var mobileNo = document.getElementById('mobileNo');
+    var dob = document.getElementById('dob');
+    var hobbies = document.getElementById('hobbies');
+    var country = document.getElementById('country');
+
+    if (firstName.value.length == 0 ) {
+        alert ("Enter your first name!");
+        return false;
+    }
+    else if (lastName.value.length == 0) {
+        alert ("Enter your last name");
+        return false;
+    }
+    else if (password.value.length < 8) {
+        alert ("Enter a password that has atleast 8 letter");
+        return false;
+    }
+    else if ((mobileNo.value.length <= 11) && (mobileNo.value.length > 12)) {
+        alert ("Enter your mobile no");
+        return false;
+    }
+    else if (dob.value.length == 0) {
+        alert ("Enter date of birth");
+        return false;
+    }
+    else if (hobbies.value.length == 0) {
+        alert ("Please select a hobby");
+        return false;
+    }
+    else if (country.value.length == 0) {
+        alert ("Please select a country");
+        return false;
+    }
+    return true;
+
+}
+function doDate()
+{
+    var str = "";
+
+    var days = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
+    var now = new Date();
+
+    str += "Today is: " + days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " " + now.getHours() +":" + now.getMinutes() + ":" + now.getSeconds();
+    document.getElementById("todaysDate").innerHTML = str;
+}
+
+setInterval(doDate, 1000);
+
+function changeBodyBg(color)
+{
+    document.body.style.background = color;
+}
